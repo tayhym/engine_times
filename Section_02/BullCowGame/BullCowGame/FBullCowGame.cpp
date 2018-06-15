@@ -31,9 +31,9 @@ int32 FBullCowGame::getHiddenWordLength() const {
 
 void FBullCowGame::Reset() {
     currentTry = 1;
-    maxTries = MAXTRIES;
-    const FString HIDDEN_WORD = "dung";
+    const FString HIDDEN_WORD = "lance";
     hiddenWord = HIDDEN_WORD;
+    maxTries = wordLengthToMaxTries(hiddenWord.length());
     return;
 }
 
@@ -85,7 +85,7 @@ EguessValidity FBullCowGame::getGuessValidity(FString guess) {
 
 void FBullCowGame::printGameSummary() {
     std::cout << "Summary: " << std::endl;
-    std::cout << "You took " << currentTry << " tries. " << std::endl;
+    std::cout << "You took " << currentTry - 1 << " guess(es). " << std::endl;
     
 }
 
@@ -111,6 +111,12 @@ bool FBullCowGame::isLowerCase(FString guess) const {
     }
     return true;
 }
+
+int32 FBullCowGame::wordLengthToMaxTries(int32 wordLength) const { 
+    Tmap <int32, int32> wordLenToTries = { {1,2}, {2,4}, {3,5}, {4,8}, {5,9}, {6,15}};
+    return wordLenToTries[wordLength];
+}
+
 
 
 

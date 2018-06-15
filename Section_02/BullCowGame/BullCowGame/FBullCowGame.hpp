@@ -43,12 +43,12 @@ class FBullCowGame {
     
     private:
     
-        static constexpr int32 MAXTRIES = 8;
         FString hiddenWord;
         int32 currentTry;
         int32 maxTries;
         bool isIsogram(FString guess) const;
-        bool isLowerCase(FString guess) const; 
+        bool isLowerCase(FString guess) const;
+        int32 wordLengthToMaxTries(int32 wordLength) const; 
     };
 
 
