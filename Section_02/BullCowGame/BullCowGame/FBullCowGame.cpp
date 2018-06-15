@@ -8,6 +8,8 @@
 
 #include "FBullCowGame.hpp"
 #include "math.h"
+#include <stdio.h>
+#include <iostream>
 
 using int32 = int;
 using uint32 = unsigned int;
@@ -77,5 +79,12 @@ EguessValidity FBullCowGame::getGuessValidity(FString guess) {
         return EguessValidity::ok;
     }
 }
+
+void FBullCowGame::printGameSummary() {
+    std::cout << "Summary: " << std::endl;
+    std::cout << "You took " << currentTry << " tries. " << std::endl;
+    
+}
+
 
 

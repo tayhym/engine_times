@@ -38,6 +38,7 @@ class FBullCowGame {
         BullCowCountStruct submitGuess(FString guess);
         int32 getHiddenWordLength() const;
         EguessValidity getGuessValidity(FString guess);
+        void printGameSummary();
     
     private:
     

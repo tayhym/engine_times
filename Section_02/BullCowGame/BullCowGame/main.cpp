@@ -92,6 +92,7 @@ static void playGame() {
         
         if (bull_cow_count.bulls == BCGame.getHiddenWordLength()) {
             std::cout << "Congratulations, you got the right word!" << std::endl;
+            BCGame.printGameSummary();
             return;
         } else {
              std::cout << "Aww. Incorrect word. You may try again " << std::endl;
@@ -99,6 +100,9 @@ static void playGame() {
        
     }
     std::cout << "Game over! Max tries reached. " << std::endl;
+    BCGame.printGameSummary();
+
+    
 }
 
 
