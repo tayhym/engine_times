@@ -26,7 +26,8 @@ enum class EguessValidity {
     too_long,
     too_short,
     spacing_between_letters,
-    empty_guess
+    empty_guess,
+    not_isogram
 };
 
 class FBullCowGame {
@@ -46,7 +47,8 @@ class FBullCowGame {
         FString hiddenWord;
         int32 currentTry;
         int32 maxTries;
-    
+        bool isIsogram(FString guess) const;
+        bool isLowerCase(FString guess) const; 
     };
 
 

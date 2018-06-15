@@ -10,6 +10,8 @@
 #include "math.h"
 #include <stdio.h>
 #include <iostream>
+#include <map>
+#define Tmap std::map
 
 using int32 = int;
 using uint32 = unsigned int;
@@ -30,11 +32,10 @@ int32 FBullCowGame::getHiddenWordLength() const {
 void FBullCowGame::Reset() {
     currentTry = 1;
     maxTries = MAXTRIES;
-    const FString HIDDEN_WORD = "dude";
+    const FString HIDDEN_WORD = "dung";
     hiddenWord = HIDDEN_WORD;
     return;
 }
-
 
 FBullCowGame::FBullCowGame() {
     Reset();
@@ -75,6 +76,8 @@ EguessValidity FBullCowGame::getGuessValidity(FString guess) {
         return EguessValidity::too_long;
     } else if (std::count(guess.begin(), guess.end(), ' ') >=1) {
         return EguessValidity::spacing_between_letters;
+    } else if (!isIsogram(guess)) {
+        return EguessValidity::not_isogram;
     } else {
         return EguessValidity::ok;
     }
@@ -85,6 +88,31 @@ void FBullCowGame::printGameSummary() {
     std::cout << "You took " << currentTry << " tries. " << std::endl;
     
 }
+
+bool FBullCowGame::isIsogram(FString guess) const { 
+    Tmap<char, bool> letters_seen;
+    for (int32 i=0; i<guess.length(); i++) {
+        char guess_letter = std::tolower(guess[i]);
+        if (letters_seen.find(guess_letter) == letters_seen.end())
+            letters_seen[guess_letter] = true;
+        else {
+            return false;
+        }
+    }
+    return true;
+    
+}
+
+bool FBullCowGame::isLowerCase(FString guess) const { 
+    for (auto letter : guess) {
+        if (~std::islower(letter)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
 
 
 

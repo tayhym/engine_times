@@ -66,7 +66,10 @@ FText getValidGuess() {
                 std::cout << "The guess is too short. Please try again. " << std::endl;
                 break;
             case EguessValidity::spacing_between_letters:
-                std::cout << "The guess is not a single word. Please try again. " << std::endl;
+                std::cout << "The guess should be a single word. Please try again. " << std::endl;
+                break;
+            case EguessValidity::not_isogram:
+                std::cout << "The guess is not an isogram (no repeating alphabets. " << std::endl;
                 break;
             case EguessValidity::ok:
                 break;
