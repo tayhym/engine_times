@@ -6,6 +6,7 @@
 //  Copyright © 2018 Matthew Tay Han Yang. All rights reserved.
 //
 
+#pragma once 
 #include "FBullCowGame.hpp"
 #include "math.h"
 #include <stdio.h>
