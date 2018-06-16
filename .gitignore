@@ -1,0 +1,13 @@
+# ignore unreal generated files
+
+**/Build
+**/Binaries
+**/DerivedDataCache
+**/Intermediate
+**/Saved 
+
+# starter content for Section_03 is large
+/Users/matthew/Documents/UnrealCourse/Section_03/Building_Escape/Content/StarterContent 
+**/Content/StarterContent/
+
+
